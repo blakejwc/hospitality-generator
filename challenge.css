@@ -14,7 +14,7 @@ body{
     color:#045;
 }
 
-#quoteContainer{
+#challengeContainer{
     width:75%;
     background: #fff;
     padding:10px;
@@ -26,7 +26,7 @@ body{
     width: 100%;
     text-align: center;
 }
-#quoteButton{
+#challengeButton{
     width:200px;
     margin-top: 10px;
     border:2px solid #46b8da;
@@ -38,18 +38,18 @@ body{
     text-align: center;
 }
 
-#quoteButton:hover{
+#challengeButton:hover{
     cursor:pointer;
     background:#09c;
     color: #fff;
 }
-#quoteButton:active{
+#challengeButton:active{
     cursor: pointer;
 }
-#quoteButton{
+#challengeButton{
     display: inline-block;
 }
-#quoteGenius{
+#challengeGenius{
     font-style: italic;
     font-weight: 600;
     text-align: center;
@@ -58,7 +58,7 @@ body{
 
 /*MEDIA QUERIES*/
 @media screen and(max-width:760px){
-    #quoteButton,#addNew{
+    #challengeButton,#addNew{
         display: block;
     }
 }
