@@ -1,3 +1,6 @@
 # hospitality-generator
 
-Coppied and editted version of: https://codepen.io/kkoutoup/pen/zxmGLE
+Coppied and edited version of: https://codepen.io/kkoutoup/pen/zxmGLE
+
+Sources:
+- https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
