@@ -19,7 +19,7 @@ function displayChallenge(newChallenge, newVerse) {
     challengeContainer.fadeOut(timeAnimation, function() {
         challengeContainer.html('');
         challengeContainer.append('<p>' + newChallenge + '</p>'
-            + '<p id="challengeGenius">' + '-' + newVerse + '</p>');
+            + '<p id="challengeGenius">' + newVerse + '</p>');
 
         //fadein animation.
         challengeContainer.fadeIn(timeAnimation);
