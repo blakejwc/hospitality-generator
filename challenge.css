@@ -4,10 +4,9 @@ body{
 }
 
 #container{
-    width:800px;
+    width:535px;
     margin:50px auto;
     padding: 20px;
-    width:50%;
 }
 #container h2{
     text-align:center;
@@ -20,34 +19,40 @@ body{
     padding:10px;
     margin:30px auto;
     text-align: center;
-  height:70px;
+    height:150px;
 }
 #buttonContainer{
     width: 100%;
     text-align: center;
 }
-#challengeButton{
-    width:200px;
-    margin-top: 10px;
+.challengeButton{
+    width:160px;
+    margin:10px 5px;
     border:2px solid #46b8da;
     color:#045;
     font-family: inherit;
     font-weight: bold;
-    padding:5px;
+    padding:2px;
     text-decoration: none;
     text-align: center;
 }
 
-#challengeButton:hover{
+.challengeButton:hover{
     cursor:pointer;
     background:#09c;
     color: #fff;
 }
-#challengeButton:active{
+.challengeButton:active{
     cursor: pointer;
 }
-#challengeButton{
+.challengeButton{
     display: inline-block;
+}
+#easyChallengeButton{
+    float: left;
+}
+#hardChallengeButton{
+    float: right;
 }
 #challengeGenius{
     font-style: italic;
@@ -58,7 +63,7 @@ body{
 
 /*MEDIA QUERIES*/
 @media screen and(max-width:760px){
-    #challengeButton,#addNew{
+    .challengeButton,#addNew{
         display: block;
     }
 }

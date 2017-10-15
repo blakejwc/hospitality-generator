@@ -26,31 +26,36 @@ function displayChallenge(newChallenge, newVerse) {
     });
 }
 
+function buttonClickHandler(challengeList) {
+    //getting a new random number to attach to a challenge and setting a limit
+    var listLength = challengeList.length;
+    var randomNumber = Math.floor(Math.random() * listLength);
+    //set a new challenge
+    var newChallenge = challengeList[randomNumber].challenge;
+    var newVerse = challengeList[randomNumber].verse;
+    //console.log(newChallengeText,newChallengeGenius);
+    displayChallenge(newChallenge, newVerse);
+}
+
 $(document).ready(function() {
+    var challengeSource;
     loadJSON(function(response) {
-        var challengeSource = JSON.parse(response);
-
-        $('#challengeButton').click(function(evt) {
-            //define the containers of the info we target
-            //var challenge = $('#challengeContainer p').text();
-            //var challengeGenius = $('#challengeGenius').text();
-            //prevent browser's default action
-            evt.preventDefault();
-            //getting a new random number to attach to a challenge and setting a limit
-            var sourceLength = challengeSource.length;
-            var randomNumber= Math.floor(Math.random() * sourceLength);
-            //set a new challenge
-            //for(var i = 0; i <= sourceLength; i++) {
-                var newChallenge = challengeSource[randomNumber].challenge;
-                var newVerse = challengeSource[randomNumber].verse;
-                //console.log(newChallengeText,newChallengeGenius);
-                displayChallenge(newChallenge, newVerse);
-
-                //break;
-            //};//end for loop
-        }); //end challengeButton function
+        challengeSource = JSON.parse(response);
     });
-
-
+    $('#easyChallengeButton').click(function(evt) {
+        //prevent browser's default action
+        evt.preventDefault();
+        buttonClickHandler(challengeSource.easy);
+    });
+    $('#mediumChallengeButton').click(function(evt) {
+        //prevent browser's default action
+        evt.preventDefault();
+        buttonClickHandler(challengeSource.medium);
+    });
+    $('#hardChallengeButton').click(function(evt) {
+        //prevent browser's default action
+        evt.preventDefault();
+        buttonClickHandler(challengeSource.hard);
+    });
 });//end document ready
 
