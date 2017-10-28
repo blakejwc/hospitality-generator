@@ -2,22 +2,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Hospitality Challenge</title>
-    <link rel='stylesheet' href='challenge.css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='hospitality-generator.css'>
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' type='text/javascript'></script>
     <script src='hospitality-generator.js' type='text/javascript'></script>
 </head>
 <body>
-    <div id="container">
-        <h2>Hospitality Generator</h2>
-            <div id="challengeContainer">
-            </div>
-
-            <div id="buttonContainer">
-                <a href="#" id="easyChallengeButton" class="challengeButton">Challenge Me</a>
-                <a href="#" id="mediumChallengeButton" class="challengeButton">Really Challenge Me</a>
-                <a href="#" id="hardChallengeButton" class="challengeButton">No, Seriously...</a>
-            </div><!--end buttonContainer-->
-    </div><!--end container-->
+    <div class="hr_generator">
+        <h1 class="hr_generator_title">Hospitality Challenge Generator</h1>
+        <div id="hr_generator_challenges" class="hr_generator_challenges"></div>
+        <div id="hr_generator_buttons" class="hr_generator_buttons">
+            <a href="#" id="hr_generator_button-easy" class="hr_generator_button">Challenge Me</a>
+            <a href="#" id="hr_generator_button-medium" class="hr_generator_button">Really Challenge Me</a>
+            <a href="#" id="hr_generator_button-hard" class="hr_generator_button">No, Seriously...</a>
+        </div>
+    </div>
 </body>
 </html>
