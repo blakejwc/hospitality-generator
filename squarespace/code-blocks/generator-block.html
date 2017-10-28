@@ -1,0 +1,191 @@
+<style>
+    .roboto {
+        text-align:center;
+        color: #000;
+    }
+    #container{
+        max-width:615px;
+        margin: 0px auto;
+        padding: 5px;
+    }
+    .small_h1 {
+        font-size:xx-large;
+        text-align:center;
+        color:#045;
+        margin-bottom: 0px;
+    }
+
+    #challengeContainer{
+        width: 75%;
+        background: #fff;
+        margin: 15px auto;
+        padding: 5px;
+        text-align: center;
+        height: 150px;
+        color: #000;
+        display:flex !important;
+        justify-content:center;
+        align-items:center;
+    }
+    .challenge {
+        font-size: 12px;
+        vertical-align: middle;
+    }
+    #buttonContainer{
+        width: 100%;
+        text-align: center;
+        margin: auto;
+    }
+    .challengeButton{
+        width:190px;
+        border:2px solid #46b8da;
+        margin-top: 3px;
+        color:#045;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: large;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .challengeButton:hover{
+        cursor:pointer;
+        background:#09c;
+        color: #fff;
+    }
+    .challengeButton:active{
+        cursor: pointer;
+    }
+    .challengeButton{
+        display: inline-block;
+    }
+    /*MEDIA QUERIES*/
+    @media screen and(max-width:760px){
+        .challengeButton,#addNew{
+            display: block;
+        }
+        .challengeButton:last-of-type {
+            margin-top: 3rem;
+        }
+    }
+</style>
+
+<script>
+    var easyChallenge = [
+        "If someone new has moved into your neighborhood popover to welcome",
+        "Go to Japan night and be hospitable to Japanese",
+        "Smile more",
+        "Introduce yourself to somebody new at Highrock and ask them about it their favorite experience of hospitality.",
+        "Start a book of remembrances. Collect stories of hospitality or create a wall of hospitality.",
+        "Stop and take five minutes to talk to a neighbor or coworker.",
+        "Be gracious and accommodating in traffic.",
+        "Invite someone to meet for coffee or drinks.",
+        "Invite someone to join you in participating in an activity you enjoy: walking, biking, the movies, concert, gallery visit, etc.",
+        "Donate clothes to wear",
+        "Invite a single person to dinner.",
+        "Offer to bring someone to a Highrock event like Highrocktoberfest, or community groups.",
+        "Pray for people",
+        "Use the prayer of examen this week. Be attentive to what invitations, affirmations, or challenges come up for you as themes during your prayer time.",
+        "Go for a quiet 30 minute walk notice what comes to mind:concerns, anxieties, people, questions, joys- spend some time talking with God about those things.",
+        "Introduce yourself to 3 people at soul food after church, learn their names and a little bit about them."
+    ];
+
+    var mediumChallenge = [
+        "Invite a family to dinner.",
+        "Have a day after Thanksgiving leftover party. Invite neighbors to bring their leftovers on Friday or Saturday and give thanks for having such a cool neighbors",
+        "Invite someone into your small group.",
+        "\"Check-In\" on Facebook at a coffee shop and invite anyone to join you. ",
+        "Offer a couple open seats at your table for Thanksgiving on MyRock.",
+        "Visit families on a regular basis (I'm talking about people you are not too familiar with)/ take them out/ include them in your regular lives.  ",
+        "Purchase Bus passes/ Gift Cards for single moms/ dads or families in fixed income housing.",
+        "Start a meal train for single moms, families, families with newborns….but to eat the meal with them…not just drop it off.",
+        "Provide rides to church on a regular basis or other activities happening at church.",
+        "Host people for housing for not just a night but for weeks or months if needed",
+        "Babysit kids so parents/ single parents have a night off",
+        "Be a mentor and spend time with their kids/ take the kids out",
+        "Practice conversational English with an international",
+        "Help an international fill out paperwork for employment, visas, citizenships",
+        "Be willing to meet someone new everyday and have a meaningful conversation with them.",
+        "Advocate for someone in need",
+        "Serve in the church"
+    ];
+
+    var hardChallenge = [
+        "Adopt an international student",
+        "Hold a neighborhood Christmas tea or dinner where everyone brings a toy. Give the toys to Toys for Tots or some other organization.",
+        "Have a bring a friend Advent potluck —  where friends of friends are welcome. Ask everyone to bring an advent or Christmas song, writing, clip that means something to them.",
+        "Take the Sacred Pathways test. 3 times this week connect with god through your highest scoring pathway.",
+        "Invite a friend to take the Sacred Pathways test and then discuss the different ways you connect to god. Try practicing their primary pathway and see what you learn about them and about God"
+    ];
+
+    //function loadJSON(callback) {
+    //
+    //    var xobj = new XMLHttpRequest();
+    //        xobj.overrideMimeType('application/json');
+    //    xobj.open('GET', 'challengs.json', true);
+    //    xobj.onreadystatechange = function () {
+    //          if (xobj.readyState === 4 && xobj.status === '200') {
+    //            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+    //            callback(xobj.responseText);
+    //          }
+    //    };
+    //    xobj.send(null);
+    //}
+
+    function displayChallenge(newChallenge/*, newVerse*/) {
+        var timeAnimation = 500;
+        var challengeContainer = $('#challengeContainer');
+        //fade out animation with callback
+        challengeContainer.fadeOut(timeAnimation, function() {
+            challengeContainer.html('<h3 class="challenge">' + newChallenge + '</h3>');
+            //+ '<p id="challengeGenius">' + newVerse + '</p>');
+
+            //fadein animation.
+            challengeContainer.fadeIn(timeAnimation);
+        });
+    }
+
+    function buttonClickHandler(challengeList) {
+        //getting a new random number to attach to a challenge and setting a limit
+        var listLength = challengeList.length;
+        var randomNumber = Math.floor(Math.random() * listLength);
+        //set a new challenge
+        var newChallenge = challengeList[randomNumber];//.challenge;
+        //var newVerse = challengeList[randomNumber].verse;
+        //console.log(newChallengeText,newChallengeGenius);
+        displayChallenge(newChallenge/*, newVerse*/);
+    }
+
+    $(document).ready(function() {
+        //    var challengeSource;
+        //    loadJSON(function(response) {
+        //        challengeSource = JSON.parse(response);
+        //    });
+        $('#easyChallengeButton').click(function(evt) {
+            //prevent browser's default action
+            evt.preventDefault();
+            buttonClickHandler(easyChallenge);
+        });
+        $('#mediumChallengeButton').click(function(evt) {
+            //prevent browser's default action
+            evt.preventDefault();
+            buttonClickHandler(mediumChallenge);
+        });
+        $('#hardChallengeButton').click(function(evt) {
+            //prevent browser's default action
+            evt.preventDefault();
+            buttonClickHandler(hardChallenge);
+        });
+    });//end document ready
+</script>
+<div class="roboto" id="container">
+    <h1 class="small_h1">Hospitality Challenge Generator</h1>
+    <div id="challengeContainer">
+    </div>
+
+    <div id="buttonContainer">
+        <a href="#" id="easyChallengeButton" class="challengeButton">Challenge Me</a>
+        <a href="#" id="mediumChallengeButton" class="challengeButton">Really Challenge Me</a>
+        <a href="#" id="hardChallengeButton" class="challengeButton">No, Seriously...</a>
+    </div><!--end buttonContainer-->
+</div><!--end container-->
