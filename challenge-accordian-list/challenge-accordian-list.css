@@ -1,0 +1,18 @@
+/*CHALLENGE ACCORDIAN LIST*/
+.hr_accordian {
+    height: 2000px;
+}
+.hr_accordian_button--pointer {
+    cursor: pointer;
+}
+.hr_accordian_container {
+    display: table;
+}
+.hr_accordian_button--pointer:focus {
+    outline: 0;
+}
+.hr_accordian p {
+    display: table-row;
+    font-size: 14px;
+    margin-bottom: 0px !important;
+}

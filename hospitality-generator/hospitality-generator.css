@@ -1,0 +1,68 @@
+/*HOSPITALITY GENERATOR*/
+.hr_generator {
+    text-align: center;
+    color: #000;
+    max-width: 615px;
+    margin: 0px auto;
+    padding: 5px;
+}
+.hr_generator_title {
+    font-size: xx-large;
+    text-align: center;
+    color: #045;
+    margin-bottom: 0px;
+}
+.hr_generator_challenges {
+    width: 75%;
+    background: #fff;
+    margin: 15px auto;
+    padding: 5px;
+    text-align: center;
+    height: 150px;
+    color: #000;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.hr_generator_challenge {
+    vertical-align: middle;
+    font-size: small;
+}
+.hr_generator_buttons {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+.hr_generator_button {
+    width: 190px;
+    border: 2px solid #46b8da;
+    margin-top: 3px;
+    color: #045;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+.hr_generator_button:hover {
+    cursor: pointer;
+    background: #09c;
+    color: #fff;
+}
+.hr_generator_button:active {
+    cursor: pointer;
+}
+
+@media screen and(max-width: 760px) {
+    .hr_generator_challenges {
+        width: 80%;
+    }
+    .hr_generator_challenge {
+        font-size: x-small;
+    }
+    .hr_generator_button {
+        display: block;
+        margin: 3px auto;
+    }
+}

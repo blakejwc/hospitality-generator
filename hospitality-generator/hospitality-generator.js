@@ -1,16 +1,22 @@
 $(document).ready(function() {
-    function loadJSON(jsonFile, callback) {
+    var challengeSrc = 'https://raw.githubusercontent.com/blakejwc/hospitality-generator/master/';
 
-        var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType('application/json');
-        xobj.open('GET', jsonFile, true);
-        xobj.onreadystatechange = function () {
-            if (xobj.readyState === 4 && xobj.status === 200) {
-                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                console.log(JSON.parse(xobj.responseText));
-            }
-        };
-        xobj.send(null);
+    function loadJSON(jsonFile, callback, local) {
+        // Doesn't work on squarespace :(
+        if (local) {
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType('application/json');
+            xobj.open('GET', '../../json/' + jsonFile, true);
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState === 4 && xobj.status === 200) {
+                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                    callback(JSON.parse(xobj.responseText));
+                }
+            };
+            xobj.send(null);
+        } else {
+            $.getJSON(challengeSrc + jsonFile, callback)
+        }
     }
 
     function displayChallenge(newChallenge) {
@@ -34,30 +40,19 @@ $(document).ready(function() {
         displayChallenge(newChallenge);
     }
 
-    var challengeSrc = 'https://raw.githubusercontent.com/blakejwc/hospitality-generator/master';
-
     var easyChallenge;
-    $.getJSON(challengeSrc + '/easy-challenges.json', function (response) {
+    loadJSON('easy-challenges.json', function (response) {
         easyChallenge = response;
     });
     var mediumChallenge;
-    $.getJSON(challengeSrc + '/medium-challenges.json', function (response) {
+    loadJSON('medium-challenges.json', function (response) {
         mediumChallenge = response;
     });
     var hardChallenge;
-    $.getJSON(challengeSrc + '/hard-challenges.json', function (response) {
+    loadJSON('hard-challenges.json', function (response) {
         hardChallenge = response;
     });
-    // Doesn't work on squarespace :(
-    // loadJSON('easy-challenges.json', function(response) {
-    //     easyChallenge = JSON.parse(response);
-    // });
-    // loadJSON('medium-challenges.json', function(response) {
-    //     mediumChallenge = JSON.parse(response);
-    // });
-    // loadJSON('hard-challenges.json', function(response) {
-    //     hardChallenge = JSON.parse(response);
-    // });
+
     $('#hr_generator_button-easy').click(function(evt) {
         //prevent browser's default action
         evt.preventDefault();
