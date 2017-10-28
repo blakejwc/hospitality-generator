@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var challengeSrc = 'https://raw.githubusercontent.com/blakejwc/hospitality-generator/master/';
+    var challengeSrc = 'https://raw.githubusercontent.com/blakejwc/hospitality-generator/master/json/';
 
     function loadJSON(jsonFile, callback, local) {
         // Doesn't work on squarespace :(
